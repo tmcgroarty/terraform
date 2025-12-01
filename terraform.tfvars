@@ -1,0 +1,6 @@
+region              = "us-east-2"
+subnet_id           = "subnet-0b67c2aa1af191b9e"
+security_group_id   = "sg-0007d79cbed4a7849"
+key_name            = "OHIO"
+vpc_id              = "vpc-0e0faf1150e7473c0"
+iam_instance_profile = "jenkinsec2role"  
