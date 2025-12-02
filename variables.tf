@@ -26,13 +26,13 @@ variable "vpc_id" {
 variable "instance_name" {
   description = "Tag Name for the instance"
   type        = string
-  default     = "jenkins-terraform-ec2"
+  default     = "terraform-steelhead"
 }
 
 variable "instance_type" {
   description = "EC2 instance type"
   type        = string
-  default     = "t3.micro"
+  default     = "m5.large"
 }
 
 variable "iam_instance_profile" {
