@@ -40,8 +40,8 @@ resource "aws_instance" "jenkins_server" {
 
   # Extra EBS data volume
   ebs_block_device {
-    device_name           = "/dev/sdh"  # shows up as /dev/xvdh on many Linux AMIs
-    volume_size           = 20          # GB – change if you want bigger/smaller
+    device_name           = "/dev/xvdq"  # shows up as /dev/xvdh on many Linux AMIs
+    volume_size           = 430          # GB – change if you want bigger/smaller
     volume_type           = "gp3"
     delete_on_termination = true
   }
