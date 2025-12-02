@@ -15,7 +15,7 @@ provider "aws" {
   # If you run locally with SSO, you could add: profile = "my-sso-profile"
 }
 
-# Latest Ubuntu 22.04 in your region
+# Latest Ubuntu 22.04 in your region (no longer used for ami, but harmless to keep)
 data "aws_ami" "ubuntu" {
   most_recent = true
 
@@ -33,9 +33,18 @@ resource "aws_instance" "jenkins_server" {
   subnet_id              = var.subnet_id
   vpc_security_group_ids = [var.security_group_id]
   key_name               = var.key_name
-
-  # This must be the **instance profile name**, not just the role name.
   iam_instance_profile   = var.iam_instance_profile
+
+  # Ensure instance gets a public IP in your subnet
+  associate_public_ip_address = true
+
+  # Extra EBS data volume
+  ebs_block_device {
+    device_name           = "/dev/sdh"  # shows up as /dev/xvdh on many Linux AMIs
+    volume_size           = 20          # GB – change if you want bigger/smaller
+    volume_type           = "gp3"
+    delete_on_termination = true
+  }
 
   tags = {
     Name = var.instance_name
