@@ -1,6 +1,6 @@
 region              = "us-east-2"
 key_name            = "OHIO"
-security_group_ids  = ["sg-0175e04816330889a"]
+security_group_ids  = ["sg-0be07acb3d522ae42"]
 iam_instance_profile = "JenkinsEC2Role"
 
 instances = {
