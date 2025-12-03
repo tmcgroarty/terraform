@@ -1,6 +1,42 @@
 region              = "us-east-2"
-subnet_id           = "subnet-0b67c2aa1af191b9e"
-security_group_id   = "sg-0007d79cbed4a7849"
 key_name            = "OHIO"
-vpc_id              = "vpc-0e0faf1150e7473c0"
-iam_instance_profile = "JenkinsEC2Role"  
+security_group_ids  = ["sg-0175e04816330889a"]
+iam_instance_profile = "JenkinsEC2Role"
+
+instances = {
+  SFE = {
+    ami                         = "ami-07233672216fff926"
+    subnet_id                   = "subnet-0b67c2aa1af191b9e"
+    instance_type               = "m5.large"
+    associate_public_ip_address = true
+    ebs_size                    = 430
+    ebs_device_name             = "/dev/xvdq"
+  }
+
+  CFE = {
+    ami                         = "ami-07233672216fff926"
+    subnet_id                   = "subnet-04a06f9b575bf2083"
+    instance_type               = "m5.large"
+    associate_public_ip_address = true
+    ebs_size                    = 430
+    ebs_device_name             = "/dev/xvdq"
+  }
+
+  client = {
+    ami                         = "ami-0f5fcdfbd140e4ab7"
+    subnet_id                   = "subnet-082af55811c6ae426"
+    instance_type               = "t3.large"
+    associate_public_ip_address = true
+    ebs_size                    = 0
+    ebs_device_name             = ""
+  }
+
+  server = {
+    ami                         = "ami-0f5fcdfbd140e4ab7"
+    subnet_id                   = "subnet-0a6338b1259311ef9"
+    instance_type               = "t3.large"
+    associate_public_ip_address = true
+    ebs_size                    = 0
+    ebs_device_name             = ""
+  }
+}
