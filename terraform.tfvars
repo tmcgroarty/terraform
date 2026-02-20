@@ -5,7 +5,7 @@ iam_instance_profile = "JenkinsEC2Role"
 
 instances = {
   SFE = {
-    ami                         = "ami-07233672216fff926"
+    ami                         = "ami-053d3179f739d11e8"
     subnet_id                   = "subnet-0b67c2aa1af191b9e"
     instance_type               = "m5.large"
     associate_public_ip_address = true
@@ -14,7 +14,7 @@ instances = {
   }
 
   CFE = {
-    ami                         = "ami-07233672216fff926"
+    ami                         = "ami-053d3179f739d11e8"
     subnet_id                   = "subnet-04a06f9b575bf2083"
     instance_type               = "m5.large"
     associate_public_ip_address = true
